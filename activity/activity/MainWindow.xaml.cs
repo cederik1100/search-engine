@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Data;
 using System.Windows;
 using Microsoft.Win32;
+using ClosedXML.Excel;
 
 namespace activity
 {
@@ -40,7 +42,7 @@ namespace activity
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BTUpload_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select a file to upload";
@@ -48,9 +50,39 @@ namespace activity
 
             if (openFileDialog.ShowDialog() == true)
             {
-                MessageBox.Show("File selected: " + openFileDialog.FileName);
-            }
+                try
+                {
+                    using var workbook = new XLWorkbook(openFileDialog.FileName);
+                    var worksheet = workbook.Worksheet(1);
+                    var dataTable = new DataTable();
 
+                    foreach (var headCell in worksheet.Row(1).Cells())
+                    {
+                        dataTable.Columns.Add(headCell.Value.ToString());
+                    }
+
+                    foreach( var row in worksheet.RowsUsed().Skip(1))
+                    {
+                        var dataRow = dataTable.NewRow();
+                        int columnIndex = 0;
+
+                        foreach (var cell in row.Cells())
+                        {
+                            dataRow[columnIndex++] = cell.Value.ToString();
+                        }
+
+                        dataTable.Rows.Add(dataRow);
+                    }
+
+                    MyDataGrid.ItemsSource = dataTable.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error reading the Excel file: {ex.Message}");
+                }
+            }
         }
+
+        
     }
 }

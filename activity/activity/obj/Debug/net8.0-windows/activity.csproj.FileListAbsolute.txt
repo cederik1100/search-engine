@@ -18,3 +18,14 @@ C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\re
 C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\activity.pdb
 C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\activity.genruntimeconfig.cache
 C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\ref\activity.dll
+C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\activity.csproj.AssemblyReference.cache
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\csvalenteros\source\repos\activity\activity\bin\Debug\net8.0-windows\System.IO.Packaging.dll
+C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\activity.sourcelink.json
+C:\Users\csvalenteros\source\repos\activity\activity\obj\Debug\net8.0-windows\activity.csproj.Up2Date
