@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
+using System.Windows.Controls;
 
 namespace activity
 {
@@ -15,30 +16,12 @@ namespace activity
         {
             InitializeComponent();
 
-
+            uploadedData = new DataTable();
+             
             //DropDown list
             List<string> category = new List<string> { "Company name", "Security No." };
             CBDropDown.ItemsSource = category;
 
-
-        }
-
-
-        private void BTSearch_Click(object sender, RoutedEventArgs e)
-        {
-            string search = TBSearch.Text;
-
-           List<string> companies = new List<string>{"Microsoft", "Google", "Amazon"};
-
-            // Check if the searched text exists in the company list
-            if (companies.Contains(search))
-            {
-                TxtCompanyName.Text = search;
-            }
-            else
-            {
-                TxtCompanyName.Text = "Company not found";
-            }
 
         }
 
@@ -54,16 +37,16 @@ namespace activity
                 {
                     using var workbook = new XLWorkbook(openFileDialog.FileName);
                     var worksheet = workbook.Worksheet(1);
-                    var dataTable = new DataTable();
+                    uploadedData = new DataTable();
 
                     foreach (var headCell in worksheet.Row(1).Cells())
                     {
-                        dataTable.Columns.Add(headCell.Value.ToString());
+                        uploadedData.Columns.Add(headCell.Value.ToString());
                     }
 
-                    foreach( var row in worksheet.RowsUsed().Skip(1))
+                    foreach (var row in worksheet.RowsUsed().Skip(1))
                     {
-                        var dataRow = dataTable.NewRow();
+                        var dataRow = uploadedData.NewRow();
                         int columnIndex = 0;
 
                         foreach (var cell in row.Cells())
@@ -71,18 +54,77 @@ namespace activity
                             dataRow[columnIndex++] = cell.Value.ToString();
                         }
 
-                        dataTable.Rows.Add(dataRow);
+                        uploadedData.Rows.Add(dataRow);
                     }
 
-                    MyDataGrid.ItemsSource = dataTable.DefaultView;
+                    MyDataGrid.ItemsSource = uploadedData.DefaultView;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error reading the Excel file: {ex.Message}");
                 }
             }
+
+
         }
 
+
+        private DataTable uploadedData;
+
+        private void BTSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (uploadedData != null)
+            {
+                string search = TBSearch.Text;
+                string category = CBDropDown.SelectedIndex.ToString();
+
+
+                if (category == "0")
+                {
+                    if (search == "")
+                    {
+                        MessageBox.Show("Please enter a search term.");
+                    }
+                    else
+                    {
+                        foreach (DataRow row in uploadedData.Rows)
+                        {
+                            if (row[0].ToString().ToLower() == search.ToLower() || row[0].ToString().ToUpper()==search.ToUpper())
+                            {
+                                TxtCompanyName.Text = row[0].ToString();
+                                TxtSecurityNo.Text = row[1].ToString();
+                                TxtDateRegistered.Text = row[3].ToString();
+                                TxtLicenseNo.Text = row[2].ToString();
+                                TxtViolation.Text = row[5].ToString();
+                            }
+                        }
+                    }
+                }
+                else if (category == "1")
+                {
+                    if (search == "")
+                    {
+                        MessageBox.Show("Please enter a search term.");
+                    }
+                    else
+                    {
+                        foreach (DataRow row in uploadedData.Rows)
+                        {
+                            if (row[1].ToString() == search)
+                            {
+                                TxtCompanyName.Text = row[0].ToString();
+                                TxtSecurityNo.Text = row[1].ToString();
+                                TxtDateRegistered.Text = row[3].ToString();
+                                TxtLicenseNo.Text = row[2].ToString();
+                                TxtViolation.Text = row[5].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
         
     }
 }

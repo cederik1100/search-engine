@@ -9,7 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Logo.png" />
+    <None Remove="search.png" />
+    <None Remove="Search1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.104.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Logo.png" />
+    <Resource Include="search.png" />
+    <Resource Include="Search1.png" />
   </ItemGroup>
 
 </Project>
