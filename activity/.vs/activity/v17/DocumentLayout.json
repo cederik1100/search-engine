@@ -25,10 +25,6 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "App.xaml",
@@ -37,8 +33,12 @@
               "ToolTip": "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\App.xaml",
               "RelativeToolTip": "activity\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-23T06:49:18.786Z",
+              "WhenOpened": "2025-01-24T02:54:47.515Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "activity\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\MainWindow.xaml.cs",
               "RelativeToolTip": "activity\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAvwEsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwDgAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T01:05:14.831Z",
               "EditorCaption": ""

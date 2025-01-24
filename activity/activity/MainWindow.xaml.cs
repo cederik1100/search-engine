@@ -1,15 +1,12 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
-using System.Windows.Controls;
+
 
 namespace activity
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -58,6 +55,8 @@ namespace activity
                     }
 
                     MyDataGrid.ItemsSource = uploadedData.DefaultView;
+                    MessageBox.Show("File uploaded successfully!");
+
                 }
                 catch (Exception ex)
                 {
@@ -74,12 +73,19 @@ namespace activity
         private void BTSearch_Click(object sender, RoutedEventArgs e)
         {
 
-            if (uploadedData != null)
+            string search = TBSearch.Text;
+            string category = CBDropDown.SelectedIndex.ToString();
+            bool dataFound = false;
+
+
+            if (uploadedData.Rows.Count == 0)
             {
-                string search = TBSearch.Text;
-                string category = CBDropDown.SelectedIndex.ToString();
+                MessageBox.Show("Please upload a file first.");
 
-
+            }
+            else
+            {
+                
                 if (category == "0")
                 {
                     if (search == "")
@@ -90,15 +96,24 @@ namespace activity
                     {
                         foreach (DataRow row in uploadedData.Rows)
                         {
-                            if (row[0].ToString().ToLower() == search.ToLower() || row[0].ToString().ToUpper()==search.ToUpper())
+                            if (row[0].ToString().ToLower() == search.ToLower() || row[0].ToString().ToUpper() == search.ToUpper())
                             {
                                 TxtCompanyName.Text = row[0].ToString();
                                 TxtSecurityNo.Text = row[1].ToString();
                                 TxtDateRegistered.Text = row[3].ToString();
                                 TxtLicenseNo.Text = row[2].ToString();
                                 TxtViolation.Text = row[5].ToString();
+                                TxtPayersName.Text = row[4].ToString();
+                                dataFound = true;
+                                break;
                             }
                         }
+
+                        if (dataFound == false)
+                        {
+                            MessageBox.Show("Data not found");
+                        }
+                        
                     }
                 }
                 else if (category == "1")
@@ -123,6 +138,7 @@ namespace activity
                     }
                 }
             }
+
 
         }
         
