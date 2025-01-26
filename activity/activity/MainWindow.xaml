@@ -17,11 +17,11 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
+        
 
-        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="800" Height="100" Grid.Column="1" />
+        <!--Upper Right 0,0-->
         <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="100" Height="100" />
-        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="100" Height="100" Grid.Column="2" />
-        <Ellipse HorizontalAlignment="Center" Height="76" Stroke="#FFFD0000" Fill="#FFE6FF02" VerticalAlignment="Center" Width="76" RenderTransformOrigin="0.5,0.5">
+        <Ellipse HorizontalAlignment="Center" Height="75" Stroke="#FFFD0000" Fill="#FFE6FF02" VerticalAlignment="Center" Width="76" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -31,36 +31,27 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <ComboBox Name="CBDropDown" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Width="130" Height="30" SelectedIndex="0" BorderBrush="#FFFF6CF3" Grid.Column="1"/>
-
-
-        <TextBox Name ="TBSearch" HorizontalAlignment="Left" Margin="230,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="366" Height="30" Grid.Column="1"/>
-        <Button Name ="BTSearch" Content="Search" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="596,0,0,0" Height="30" Width="88" Background="#FFFF2300" Foreground="#ffffff" Click="BTSearch_Click" RenderTransformOrigin="1.759,0.594" Grid.Column="1"/>
-        <Button Name ="BTUpload" Content="Upload File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" Click="BTUpload_Click" Background="#FFE6FF00" Foreground="Black" Grid.Column="2"/>
-
-        <!--Display Form-->
-        <Rectangle HorizontalAlignment="Center" Margin="0,21,0,-18" Stroke="#dbdbdb" Fill="#FFE6FF00" Width="762" Grid.Row="1" Grid.Column="1" />
-        <TextBlock Name="TBCompanyName" HorizontalAlignment="Left" Margin="30,44,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Company Name:" VerticalAlignment="Top" Width="100" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TBSecurityNo" HorizontalAlignment="Left" Margin="30,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Security No.:" VerticalAlignment="Top" Width="100" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TBDateRegistered" HorizontalAlignment="Left" Margin="413,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Date Registered:" VerticalAlignment="Top" Width="110" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TBLicenseNo" HorizontalAlignment="Left" Margin="413,44,0,0" Grid.Row="1" TextWrapping="Wrap" Text="License No.:" VerticalAlignment="Top" Width="100" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TBViolation" HorizontalAlignment="Left" Margin="30,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Violation:" VerticalAlignment="Top" Width="100" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TBPayersName" HorizontalAlignment="Left" Margin="413,99,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Payers Name:" VerticalAlignment="Top" Width="87" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-
-
-        <TextBlock Name="TxtCompanyName" HorizontalAlignment="Left" Margin="146,44,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TxtSecurityNo" HorizontalAlignment="Left" Margin="146,72,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TxtDateRegistered" HorizontalAlignment="Left" Margin="544,71,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Foreground="Red" FontWeight="Bold" Grid.Column="1"/>
-        <TextBlock Name="TxtLicenseNo" HorizontalAlignment="Left" Margin="544,44,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TxtViolation" HorizontalAlignment="Left" Margin="146,99,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="16" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-        <TextBlock Name="TxtPayersName" HorizontalAlignment="Left" Margin="544,98,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="16" Foreground="Red" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1"/>
-
-        <DataGrid Name="MyDataGrid" Margin="44,154,40,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
         <Image Height="54" Margin="20,0,20,0" VerticalAlignment="Center" Source="/Logo.png">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/Logo.png"/>
             </Image.OpacityMask>
         </Image>
+       
+        <!--Upper Center 0,1-->
+        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="800" Height="100" Grid.Column="1" />
+        <TextBox Name ="TBSearch" HorizontalAlignment="Left" Margin="230,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="366" Height="30" Grid.Column="1"/>
+        <Button Name ="BTSearch" Content="Search" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="596,0,0,0" Height="30" Width="88" Background="#FFFF2300" Foreground="#ffffff" Click="BTSearch_Click" RenderTransformOrigin="1.759,0.594" Grid.Column="1"/>
+        <ComboBox Name="CBDropDown" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Width="130" Height="30" SelectedIndex="0" BorderBrush="#FFFF6CF3" Grid.Column="1"/>
+
+        <!--Upper Left 0,2-->
+        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="100" Height="100" Grid.Column="2" />
+        <Button Name ="BTUpload" Content="Upload File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" Click="BTUpload_Click" Background="#FFE6FF00" Foreground="Black" Grid.Column="2"/>
+
+        <!--Lower Center 1,1-->
+        <Rectangle HorizontalAlignment="Center" Margin="0,21,0,-18" Stroke="#dbdbdb" Fill="#FFE6FF00" Width="762" Grid.Row="1" Grid.Column="1" />
+        <DataGrid Name="Suggestion" Margin="44,40,405,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
+        <DataGrid x:Name="Data" Margin="413,40,40,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
+
 
 
 

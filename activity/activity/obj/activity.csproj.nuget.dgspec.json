@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\activity.csproj": {}
+    "C:\\Users\\ced\\Source\\Repos\\search-engine\\activity\\activity\\activity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\activity.csproj": {
+    "C:\\Users\\ced\\Source\\Repos\\search-engine\\activity\\activity\\activity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\activity.csproj",
+        "projectUniqueName": "C:\\Users\\ced\\Source\\Repos\\search-engine\\activity\\activity\\activity.csproj",
         "projectName": "activity",
-        "projectPath": "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\activity.csproj",
-        "packagesPath": "C:\\Users\\csvalenteros\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csvalenteros\\source\\repos\\activity\\activity\\obj\\",
+        "projectPath": "C:\\Users\\ced\\Source\\Repos\\search-engine\\activity\\activity\\activity.csproj",
+        "packagesPath": "C:\\Users\\ced\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ced\\Source\\Repos\\search-engine\\activity\\activity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\csvalenteros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ced\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,6 +54,10 @@
             "ClosedXML": {
               "target": "Package",
               "version": "[0.104.2, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.3, )"
             }
           },
           "imports": [

@@ -2,11 +2,12 @@
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
+using System.Windows.Controls;
 
 
 namespace activity
 {
-   
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -14,7 +15,7 @@ namespace activity
             InitializeComponent();
 
             uploadedData = new DataTable();
-             
+
             //DropDown list
             List<string> category = new List<string> { "Company name", "Security No." };
             CBDropDown.ItemsSource = category;
@@ -36,11 +37,13 @@ namespace activity
                     var worksheet = workbook.Worksheet(1);
                     uploadedData = new DataTable();
 
+                    // Add columns 
                     foreach (var headCell in worksheet.Row(1).Cells())
                     {
                         uploadedData.Columns.Add(headCell.Value.ToString());
                     }
 
+                    // Add rows 
                     foreach (var row in worksheet.RowsUsed().Skip(1))
                     {
                         var dataRow = uploadedData.NewRow();
@@ -54,7 +57,24 @@ namespace activity
                         uploadedData.Rows.Add(dataRow);
                     }
 
-                    MyDataGrid.ItemsSource = uploadedData.DefaultView;
+
+                    DataTable limitedData = new DataTable();
+
+
+                    if (uploadedData.Columns.Count > 0) limitedData.Columns.Add(uploadedData.Columns[0].ColumnName);
+                    if (uploadedData.Columns.Count > 1) limitedData.Columns.Add(uploadedData.Columns[1].ColumnName);
+
+
+                    foreach (DataRow row in uploadedData.Rows)
+                    {
+                        DataRow newRow = limitedData.NewRow();
+                        if (uploadedData.Columns.Count > 0) newRow[0] = row[0];
+                        if (uploadedData.Columns.Count > 1) newRow[1] = row[1];
+                        limitedData.Rows.Add(newRow);
+                    }
+
+
+                    Suggestion.ItemsSource = limitedData.DefaultView;
                     MessageBox.Show("File uploaded successfully!");
 
                 }
@@ -63,84 +83,69 @@ namespace activity
                     MessageBox.Show($"Error reading the Excel file: {ex.Message}");
                 }
             }
-
-
         }
-
 
         private DataTable uploadedData;
 
         private void BTSearch_Click(object sender, RoutedEventArgs e)
         {
+            string search = TBSearch.Text.ToLower(); 
+            string category = CBDropDown.SelectedItem.ToString();
+            DataTable dataTable = new DataTable();
 
-            string search = TBSearch.Text;
-            string category = CBDropDown.SelectedIndex.ToString();
-            bool dataFound = false;
+            // Add columns 
+            foreach (DataColumn column in uploadedData.Columns)
+            {
+                dataTable.Columns.Add(column.ColumnName);
+            }
 
-
+            // Check if data is uploaded and if there is a search 
             if (uploadedData.Rows.Count == 0)
             {
                 MessageBox.Show("Please upload a file first.");
-
+                return;
             }
-            else
+
+            if(search == "")
             {
-                
-                if (category == "0")
-                {
-                    if (search == "")
-                    {
-                        MessageBox.Show("Please enter a search term.");
-                    }
-                    else
-                    {
-                        foreach (DataRow row in uploadedData.Rows)
-                        {
-                            if (row[0].ToString().ToLower() == search.ToLower() || row[0].ToString().ToUpper() == search.ToUpper())
-                            {
-                                TxtCompanyName.Text = row[0].ToString();
-                                TxtSecurityNo.Text = row[1].ToString();
-                                TxtDateRegistered.Text = row[3].ToString();
-                                TxtLicenseNo.Text = row[2].ToString();
-                                TxtViolation.Text = row[5].ToString();
-                                TxtPayersName.Text = row[4].ToString();
-                                dataFound = true;
-                                break;
-                            }
-                        }
+                MessageBox.Show("Please enter a search term.");
+                return;
+            }
 
-                        if (dataFound == false)
-                        {
-                            MessageBox.Show("Data not found");
-                        }
-                        
-                    }
-                }
-                else if (category == "1")
+            // Check column index based on selected category
+            int columnIndex = -1;
+            if (category == "Company name") columnIndex = 0;
+            else if (category == "Security No.") columnIndex = 1;
+
+         
+            if (columnIndex == -1)
+            {
+                MessageBox.Show("Invalid category selected.");
+                return;
+            }
+
+            foreach (DataRow row in uploadedData.Rows)
+            {
+                if (row[columnIndex].ToString().ToLower().Contains(search))
                 {
-                    if (search == "")
+                    DataRow newRow = dataTable.NewRow();
+                    for (int i = 0; i < uploadedData.Columns.Count; i++)
                     {
-                        MessageBox.Show("Please enter a search term.");
+                        newRow[i] = row[i];
                     }
-                    else
-                    {
-                        foreach (DataRow row in uploadedData.Rows)
-                        {
-                            if (row[1].ToString() == search)
-                            {
-                                TxtCompanyName.Text = row[0].ToString();
-                                TxtSecurityNo.Text = row[1].ToString();
-                                TxtDateRegistered.Text = row[3].ToString();
-                                TxtLicenseNo.Text = row[2].ToString();
-                                TxtViolation.Text = row[5].ToString();
-                            }
-                        }
-                    }
+                    dataTable.Rows.Add(newRow);
                 }
             }
 
+            // Display results
+            Data.ItemsSource = dataTable.DefaultView;
 
+            // Show message if no data matches the search
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No matching records found.");
+            }
         }
-        
+
     }
 }
