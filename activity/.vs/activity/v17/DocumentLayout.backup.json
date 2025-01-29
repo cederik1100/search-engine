@@ -37,8 +37,7 @@
               "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\App.xaml",
               "RelativeToolTip": "activity\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-24T02:54:47.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T02:54:47.515Z"
             },
             {
               "$type": "Document",
@@ -49,8 +48,7 @@
               "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml",
               "RelativeToolTip": "activity\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-22T01:05:21.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T01:05:21.459Z"
             },
             {
               "$type": "Document",
@@ -58,9 +56,9 @@
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "activity\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs",
-              "RelativeToolTip": "activity\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAcwGMAAAANAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "activity\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAADEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T01:05:14.831Z",
               "EditorCaption": ""

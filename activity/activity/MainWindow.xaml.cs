@@ -34,28 +34,29 @@ namespace activity
                 try
                 {
                     using var workbook = new XLWorkbook(openFileDialog.FileName);
-                    var worksheet = workbook.Worksheet(1);
+                    var worksheet = workbook.Worksheet("Summary");
                     uploadedData = new DataTable();
 
-                    // Add columns 
-                    foreach (var headCell in worksheet.Row(1).Cells())
+                    for(int i = 1; i <= worksheet.LastColumnUsed().ColumnNumber(); i++)
                     {
-                        uploadedData.Columns.Add(headCell.Value.ToString());
+                        uploadedData.Columns.Add(worksheet.Cell(1, i).Value.ToString());
                     }
-
-                    // Add rows 
-                    foreach (var row in worksheet.RowsUsed().Skip(1))
+                    for(int i = 2; i <= worksheet.LastRowUsed().RowNumber(); i++)
                     {
                         var dataRow = uploadedData.NewRow();
-                        int columnIndex = 0;
-
-                        foreach (var cell in row.Cells())
+                        for(int j = 1; j <= worksheet.LastColumnUsed().ColumnNumber(); j++)
                         {
-                            dataRow[columnIndex++] = cell.Value.ToString();
+                            if (worksheet.Cell(i, j).Value.ToString() == "")
+                            {
+                                dataRow[j - 1] = "None";
+                            }
+                            else
+                            {
+                                dataRow[j - 1] = worksheet.Cell(i, j).Value.ToString();
+                            }
                         }
-
                         uploadedData.Rows.Add(dataRow);
-                    }
+                    }                   
 
 
                     DataTable limitedData = new DataTable();
