@@ -2,6 +2,9 @@
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
 
 
 
@@ -149,7 +152,76 @@ namespace activity
             }
         }
 
+        private void BTPrint_Click(object sender, RoutedEventArgs e)
+        {
+            if (Data.ItemsSource == null)
+            {
+                MessageBox.Show("No data to print. Please upload a file and search first.");
+                return;
+            }
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Save PDF File",
+                Filter = "PDF Files|*.pdf",
+                FileName = "GridData.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    DataTable dataTable = ((DataView)Data.ItemsSource).ToTable();
+
+                    Document document = new Document(PageSize.A4, 10, 10, 10, 10);
+                    PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                    document.Open();
+
+                    PdfPTable table = new PdfPTable(dataTable.Columns.Count);
+                    table.WidthPercentage = 100;
+
+                    // Add headers
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName))
+                        {
+                            BackgroundColor = BaseColor.LIGHT_GRAY,
+                            HorizontalAlignment = Element.ALIGN_CENTER
+                        };
+                        table.AddCell(cell);
+                    }
+
+                    // Add data rows
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        foreach (var cellData in row.ItemArray)
+                        {
+                            table.AddCell(cellData.ToString());
+                        }
+                    }
+
+                    document.Add(table);
+                    document.Close();
+
+                    MessageBox.Show("PDF saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error generating PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            }
+
+        private void BTClear_Click(object sender, RoutedEventArgs e)
+        {
+            Data.ItemsSource = null; // Clear the grid data
+            MessageBox.Show("Data cleared successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void BTClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 
 }

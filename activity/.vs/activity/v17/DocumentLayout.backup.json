@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\",
+  "WorkspaceRootPath": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|solutionrelative:activity\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\ced\\source\\repos\\search-engine\\activity\\activity\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|solutionrelative:activity\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\ced\\source\\repos\\search-engine\\activity\\activity\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|solutionrelative:activity\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|c:\\users\\ced\\source\\repos\\search-engine\\activity\\activity\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{18B49902-3C3E-4FE3-9C94-63247317D86D}|activity\\activity.csproj|solutionrelative:activity\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -22,15 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\App.xaml",
               "RelativeDocumentMoniker": "activity\\App.xaml",
-              "ToolTip": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\App.xaml",
+              "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\App.xaml",
               "RelativeToolTip": "activity\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-24T02:54:47.515Z",
@@ -43,25 +43,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml",
               "RelativeDocumentMoniker": "activity\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml",
-              "RelativeToolTip": "activity\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml*",
+              "RelativeToolTip": "activity\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-22T01:05:21.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "activity\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\csvalenteros\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs*",
-              "RelativeToolTip": "activity\\MainWindow.xaml.cs*",
-              "ViewState": "AgIAAGwAAAAA7ZmZmZkZwHcAAABEAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ced\\source\\repos\\search-engine\\activity\\activity\\MainWindow.xaml.cs",
+              "RelativeToolTip": "activity\\MainWindow.xaml.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAAYwN4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T01:05:14.831Z",
               "EditorCaption": ""
