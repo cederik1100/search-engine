@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:activity"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000">
-    <Grid Background="#FF47C843">
+    <Grid Background="#FF47C843" >
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="400"/>
@@ -17,10 +17,10 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        
+
 
         <!--Upper Right 0,0-->
-        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="100" Height="100" />
+        <Rectangle Grid.ColumnSpan="3" Stroke="Red" Fill="#FF05AD00"  />
         <Ellipse HorizontalAlignment="Center" Height="75" Stroke="#FFFD0000" Fill="#FFE6FF02" VerticalAlignment="Center" Width="76" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
@@ -36,23 +36,21 @@
                 <ImageBrush ImageSource="/Logo.png"/>
             </Image.OpacityMask>
         </Image>
-       
+
         <!--Upper Center 0,1-->
-        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="800" Height="100" Grid.Column="1" />
         <TextBox Name ="TBSearch" HorizontalAlignment="Left" Margin="230,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="366" Height="30" Grid.Column="1"/>
         <Button Name ="BTSearch" Content="Search" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="596,0,0,0" Height="30" Width="88" Background="#FFFF2300" Foreground="#ffffff" Click="BTSearch_Click" RenderTransformOrigin="1.759,0.594" Grid.Column="1"/>
         <ComboBox Name="CBDropDown" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Width="130" Height="30" SelectedIndex="0" BorderBrush="#FFFF6CF3" Grid.Column="1"/>
 
         <!--Upper Left 0,2-->
-        <Rectangle HorizontalAlignment="Center"  Stroke="#f0f0f0" Fill="#FF05AD00" VerticalAlignment="Center" Width="100" Height="100" Grid.Column="2" />
-        <Button Name ="BTUpload" Content="Upload File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" Click="BTUpload_Click" Background="#FFE6FF00" Foreground="Black" Grid.Column="2"/>
 
         <!--Lower Center 1,1-->
-        <Rectangle HorizontalAlignment="Center" Margin="0,21,0,-18" Stroke="#dbdbdb" Fill="#FFE6FF00" Width="762" Grid.Row="1" Grid.Column="1" />
+        <Rectangle HorizontalAlignment="Center" Margin="0,21,0,-24" Stroke="#dbdbdb" Fill="#FFE6FF00" Width="762" Grid.Row="1" Grid.Column="1" />
         <DataGrid Name="Suggestion" Margin="44,40,405,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
-        <DataGrid x:Name="Data" Margin="413,40,40,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
+        <DataGrid Name="Data" Margin="413,40,40,-7" AutoGenerateColumns="True" Grid.Row="1" Background="#FF05AD00" Foreground="Red" BorderBrush="#FF05AD00" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Grid.Column="1" />
 
-
+        <!--Lower Left 1,2-->
+        <Button Name ="BTUpload" Content="Upload File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" Click="BTUpload_Click" Background="#FFE6FF00" Foreground="Black" Grid.Column="2"/>
 
 
 

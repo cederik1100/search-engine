@@ -2,7 +2,8 @@
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
-using System.Windows.Controls;
+
+
 
 
 namespace activity
@@ -17,7 +18,7 @@ namespace activity
             uploadedData = new DataTable();
 
             //DropDown list
-            List<string> category = new List<string> { "Company name", "Security No." };
+            List<string> category = new List<string> { "Company name", "Tax Payer's Name" };
             CBDropDown.ItemsSource = category;
 
 
@@ -63,14 +64,14 @@ namespace activity
 
 
                     if (uploadedData.Columns.Count > 0) limitedData.Columns.Add(uploadedData.Columns[0].ColumnName);
-                    if (uploadedData.Columns.Count > 1) limitedData.Columns.Add(uploadedData.Columns[1].ColumnName);
+                    if (uploadedData.Columns.Count > 4) limitedData.Columns.Add(uploadedData.Columns[4].ColumnName);
 
 
                     foreach (DataRow row in uploadedData.Rows)
                     {
                         DataRow newRow = limitedData.NewRow();
                         if (uploadedData.Columns.Count > 0) newRow[0] = row[0];
-                        if (uploadedData.Columns.Count > 1) newRow[1] = row[1];
+                        if (uploadedData.Columns.Count > 4) newRow[1] = row[4];
                         limitedData.Rows.Add(newRow);
                     }
 
@@ -116,7 +117,7 @@ namespace activity
             // Check column index based on selected category
             int columnIndex = -1;
             if (category == "Company name") columnIndex = 0;
-            else if (category == "Security No.") columnIndex = 1;
+            else if (category == "Tax Payer's Name") columnIndex = 4;
 
          
             if (columnIndex == -1)
@@ -148,5 +149,7 @@ namespace activity
             }
         }
 
+
     }
+
 }
