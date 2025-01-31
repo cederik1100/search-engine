@@ -2,8 +2,7 @@
 using System.Windows;
 using Microsoft.Win32;
 using ClosedXML.Excel;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
+
 using System.IO;
 
 
@@ -79,9 +78,18 @@ namespace activity
                     }
 
 
-                    Suggestion.ItemsSource = limitedData.DefaultView;
-                    MessageBox.Show("File uploaded successfully!");
+                    //ListBox.ItemsSource = limitedData.DefaultView;
+                    
+                    List<string> displayList = new List<string>();
 
+                    foreach (DataRow row in limitedData.Rows)
+                    {
+                        displayList.Add($"Company Name: {row[0]}" +
+                                        $"\nTax Payer's Name: {row[1]}");
+                    }
+
+                    ListBox.ItemsSource = displayList;
+                    MessageBox.Show("File uploaded successfully!");
                 }
                 catch (Exception ex)
                 {
@@ -143,7 +151,22 @@ namespace activity
             }
 
             // Display results
-            Data.ItemsSource = dataTable.DefaultView;
+            //ListBox2.ItemsSource = dataTable.DefaultView;
+
+            List<string> displayList = new List<string>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                displayList.Add($"Company Name: {row[0]} " +
+                                $"\nSec no: {row[1]}  " +
+                                $"\nLicense no: {row[2]} " +
+                                $"\nDate Registered: {row[3]} " +
+                                $"\nTax Payer's Name: {row[4]} " +
+                                $"\nViolation: {row[5]}"); 
+            }
+
+            ListBox2.ItemsSource = displayList;
+ 
 
             // Show message if no data matches the search
             if (dataTable.Rows.Count == 0)
@@ -154,73 +177,82 @@ namespace activity
 
         private void BTPrint_Click(object sender, RoutedEventArgs e)
         {
-            if (Data.ItemsSource == null)
-            {
-                MessageBox.Show("No data to print. Please upload a file and search first.");
-                return;
-            }
+            //if (ListBox2.ItemsSource == null)
+            //{
+            //    MessageBox.Show("No data to print. Please upload a file and search first.");
+            //    return;
+            //}
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Title = "Save PDF File",
-                Filter = "PDF Files|*.pdf",
-                FileName = "GridData.pdf"
-            };
+            //SaveFileDialog saveFileDialog = new SaveFileDialog
+            //{
+            //    Title = "Save PDF File",
+            //    Filter = "PDF Files|*.pdf",
+            //    FileName = "Data.pdf"
+            //};
 
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                try
-                {
-                    DataTable dataTable = ((DataView)Data.ItemsSource).ToTable();
+            //if (saveFileDialog.ShowDialog() == true)
+            //{
+            //    try
+            //    {
+            //        DataTable dataTable = ((DataView)ListBox2.ItemsSource).ToTable();
 
-                    Document document = new Document(PageSize.A4, 10, 10, 10, 10);
-                    PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create));
-                    document.Open();
+            //        Document document = new Document(PageSize.A4, 10, 10, 10, 10);
+            //        PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create));
+            //        document.Open();
 
-                    PdfPTable table = new PdfPTable(dataTable.Columns.Count);
-                    table.WidthPercentage = 100;
+            //        PdfPTable table = new PdfPTable(dataTable.Columns.Count);
+            //        table.WidthPercentage = 100;
 
-                    // Add headers
-                    foreach (DataColumn column in dataTable.Columns)
-                    {
-                        PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName))
-                        {
-                            BackgroundColor = BaseColor.LIGHT_GRAY,
-                            HorizontalAlignment = Element.ALIGN_CENTER
-                        };
-                        table.AddCell(cell);
-                    }
+            //        // Add headers
+            //        foreach (DataColumn column in dataTable.Columns)
+            //        {
+            //            PdfPCell cell = new PdfPCell(new Phrase(column.ColumnName))
+            //            {
+            //                BackgroundColor = BaseColor.LIGHT_GRAY,
+            //                HorizontalAlignment = Element.ALIGN_CENTER
+            //            };
+            //            table.AddCell(cell);
+            //        }
 
-                    // Add data rows
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        foreach (var cellData in row.ItemArray)
-                        {
-                            table.AddCell(cellData.ToString());
-                        }
-                    }
+            //        // Add data rows
+            //        foreach (DataRow row in dataTable.Rows)
+            //        {
+            //            foreach (var cellData in row.ItemArray)
+            //            {
+            //                table.AddCell(cellData.ToString());
+            //            }
+            //        }
 
-                    document.Add(table);
-                    document.Close();
+            //        document.Add(table);
+            //        document.Close();
 
-                    MessageBox.Show("PDF saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error generating PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
+            //        MessageBox.Show("PDF saved successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Error generating PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //}
             }
 
         private void BTClear_Click(object sender, RoutedEventArgs e)
         {
-            Data.ItemsSource = null; // Clear the grid data
+            ListBox2.ItemsSource = null;
             MessageBox.Show("Data cleared successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void BTClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (ListBox2.SelectedItem != null)
+            {
+                Window1 window1 = new Window1(ListBox2.SelectedItem);
+                window1.Show();
+            }
         }
     }
 
